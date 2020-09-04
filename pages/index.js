@@ -1,14 +1,13 @@
 import React from "react";
 import Head from "next/head";
 
-import { Layout } from "antd";
+import { Layout, Row, Col, Divider } from "antd";
 
 const { Header, Footer, Content } = Layout;
 
 import HeaderComponent from "../src/components/Header";
 import AddJob from "../src/components/AddJob";
-// import Footer from "../src/components/Footer";
-// import JobList from "../src/components/JobList";
+import JobList from '../src/components/JobList/index'
 
 const Index = () => {
   return (
@@ -24,8 +23,11 @@ const Index = () => {
             <HeaderComponent />
           </Header>
           <Content>
-            <AddJob />
-            {/* <JobList /> */}
+            <Row justify="center">
+              <AddJob />
+            </Row>
+            <Divider />
+            <JobList />
           </Content>
 
           <Footer style={{ textAlign: "center" }}>
