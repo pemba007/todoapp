@@ -36,7 +36,7 @@ const AddJob: React.FC = () => {
 			</Button>
 			<Drawer
 				title='Adding new job'
-				width={720}
+				// width={720}
 				onClose={() => setShowAddModal(false)}
 				visible={showAddModal}
 				bodyStyle={{ paddingBottom: 80 }}

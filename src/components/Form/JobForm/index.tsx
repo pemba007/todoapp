@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
+import { SingleJob } from '../../../globalTypes';
 
 const layout = {
 	labelCol: { span: 8 },
@@ -10,7 +11,7 @@ const tailLayout = {
 	wrapperCol: { offset: 0, span: 16 },
 };
 
-const JobForm: React.FC<{ handleSubmit: Function }> = ({ handleSubmit }) => {
+const JobForm: React.FC<{ handleSubmit: Function; initialValues?: SingleJob }> = ({ handleSubmit, initialValues }) => {
 	const onFinish = (values: any) => {
 		console.log('Success:', values);
 		form.resetFields();
@@ -18,8 +19,18 @@ const JobForm: React.FC<{ handleSubmit: Function }> = ({ handleSubmit }) => {
 	};
 	const [form] = useForm();
 
+	React.useEffect(() => {
+		form.resetFields();
+	}, [initialValues]);
+
 	return (
-		<Form layout='vertical' name='job-form' onFinish={onFinish} form={form}>
+		<Form
+			layout='vertical'
+			name='job-form'
+			onFinish={onFinish}
+			form={form}
+			initialValues={initialValues ? initialValues : null}
+		>
 			<Form.Item label='Title' name='title' rules={[{ required: true, message: 'Please input your username!' }]}>
 				<Input />
 			</Form.Item>
