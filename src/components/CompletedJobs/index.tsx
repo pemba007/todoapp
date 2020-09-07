@@ -1,7 +1,8 @@
 import React from 'react';
 import { SingleJob } from '../../globalTypes';
-import { Space, Row, Col } from 'antd';
+import { Space, Row, Col, Typography } from 'antd';
 import SingleJobCard from '../SingleJobCard';
+const { Title } = Typography;
 
 interface PropJobs {
 	jobList: Array<SingleJob>;
@@ -28,10 +29,19 @@ const CompletedJobs: React.FC<PropJobs> = ({ jobList, changeJob, deleteJob, info
 							statusChange={statusChange}
 						/>
 					))}
+					{jobList.length === 0 ? (
+						<Title level={4} style={{ textAlign: 'center' }}>
+							No Job Left
+						</Title>
+					) : null}
 				</Space>
 			</Col>
 		</Row>
 	);
+};
+
+CompletedJobs.defaultProps = {
+	jobList: [],
 };
 
 export default CompletedJobs;
