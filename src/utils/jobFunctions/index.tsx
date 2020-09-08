@@ -53,13 +53,13 @@ export const changeJobStatusToNotDone = (job: SingleJob): SingleJob => {
 export const changeJobStatusToCompleted = (job: SingleJob): SingleJob => {
 	return {
 		...job,
-		status: JobStatus.notDone,
+		status: JobStatus.completed,
 	};
 };
 
 export const changeJobStatusToOnGoing = (job: SingleJob): SingleJob => {
 	return {
 		...job,
-		status: JobStatus.notDone,
+		status: JobStatus.ongoing,
 	};
 };
