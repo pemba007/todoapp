@@ -31,7 +31,7 @@ const Index = () => {
           </Content>
 
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            Todo App ©2020 Created by Pemba Rinzi Sherpa
           </Footer>
         </Layout>
       </main>
